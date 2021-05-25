@@ -40,12 +40,20 @@ if __name__ == "__main__":
 
     my_cli = Client(serverName, serverPort)
 
+    
     sentence = input("Input a lowercase sentence:\n>>> ")
+
+    # el cliente puede enviar:
+    #  -LIST lista los ficheros en el directorio donde se ejecuta el server
+    #  -GET <FILE> devuelve el archivo FILE en el directorioa del server
+    #  -METADATA <FILE> devuelve metadata del FILE en el dir del server
+    #  -CLOSE cierra la conexion entre las partes
 
     my_cli.send_data(sentence)
     response = my_cli.receive_data()
 
-    print(f"From Server: {response}")
+    print(f"From Server: \n{response}")
+
 
     my_cli.close_connection()
 
