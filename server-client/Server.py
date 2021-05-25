@@ -14,15 +14,15 @@ class Server:
 
 
 	def receive_data(self):
-		self.__conn_socket = self.__server_socket.accept()[0]
+		self.__conn_socket = self.__server_socket.accept()[0]#tiene que ir aparte?
 		return self.__conn_socket.recv(1024).decode()
 		
 		
-	def send_data(self, data) -> None:
+	def send_data(self, data):
 		self.__conn_socket.send(data.encode())
 
 
-	def close_socket(self) -> None:
+	def close_socket(self):
 		self.__conn_socket.close()
 
 
